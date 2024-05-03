@@ -1,0 +1,222 @@
+
+.background{
+    width: 100%;
+    min-height: 100vh;
+  max-height: max-content;
+}
+header{
+    
+    width: 100%;
+    position: relative;
+    background-color:rgba(0,0,0,0.3) ;
+    z-index:100;
+  
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+   position: relative;
+}
+.logo{
+    color: #fff;
+   margin-left: 40px;
+   font-size: 30px;
+}
+header nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 44px;
+    position: relative;
+}
+header nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 2px;
+  
+}
+header nav .menu{
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    color: aliceblue;
+ }
+ header nav .menu span{
+ opacity: 0;
+ }
+ nav ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    background-color:  rgb(50, 168, 186);
+    transition: 0.5s;
+}
+header nav ul li:hover::after{
+    width: 100%;
+   
+}
+.userprofile{
+    width:50px;
+    height: 50px;
+    margin-right: 25px;
+    border-radius: 50px;
+    border: 3px solid #fff;
+    overflow: hidden;
+   
+}
+.userprofile img{
+width:100%;
+height:100%;
+object-fit: cover;
+transition: .5s ease;
+cursor: pointer;
+}
+.userprofile img:hover{
+   transform: scale(1.3);
+   
+}
+.sub-menu{
+    background-color: aliceblue;
+    position: absolute;
+    top:75px;
+    right: 3.4%;
+    width: 0px;
+    height:0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    overflow: hidden;
+}
+.sub-menu.open{
+    width: 250px;
+    height: 250px;
+}
+.sub-menu .sub-menu-items{
+margin: 13px;
+}
+.sub-menu .sub-menu-items .user-info{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.sub-menu .sub-menu-items .user-info .user-img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin-right: 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+.sub-menu .sub-menu-items .user-info h3{
+    text-transform: capitalize;
+    font-weight:bolder;
+}
+.sub-menu .sub-menu-items .user-info .user-img img,
+nav .pf-img-view img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: .5s;
+}
+.sub-menu-items .user-info .user-img img:hover{
+    transform: scale(1.3);
+}
+.sub-menu .sub-menu-items hr{
+    height: 1px;
+    width: 100%;
+    background-color:rgba(0,0,0,0.7);
+    margin: 10px 0 10px;
+}
+.sub-menu .sub-menu-items ol {
+    display: flex;
+    flex-direction: column;
+}
+.sub-menu .sub-menu-items ol li{
+    text-align: center;
+   text-transform: capitalize;
+    display:grid;
+  
+    grid-template-columns: 40px 1fr 50px;
+    margin: 10px 0px 10px -35px;
+    list-style: none;
+
+}
+.sub-menu-items ol li  span:nth-child(3){
+    text-align:end;
+    font-size:larger;
+    margin-top: 5px;
+    transition: .3s;
+}
+.sub-menu-items ol li:hover span:nth-child(3){
+    transform: translateX(3px);
+ }
+.sub-menu-items ol li  span:nth-child(2){
+    text-align: start;
+    margin-top: 5px;
+    font-size:14px;
+    
+}
+.sub-menu-items ol li:hover span:nth-child(2){
+   font-size: 15px;
+}
+.sub-menu-items ol li  span:nth-child(1){
+    margin-top: 4px;
+    font-size:22px;
+    text-align:center;
+}
+nav .pf-img-view.view{
+   
+    height: 200px;
+}
+nav .pf-img-view{
+    width: 200px;
+    height: 0px;
+    position: absolute;
+    border-radius: 8px;
+    top:120px;
+    right: 20%;
+    overflow: hidden;
+    transition: 0.3s;
+}
+@media(max-width:690px){
+    header nav ul{
+        background-color: aliceblue;
+        position: absolute;
+        top:75px;
+        right: 3.4%;
+    display: flex;
+    flex-direction: column;
+        width: 0px;
+        height:0px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        transition: 0.3s;
+        overflow: hidden;
+    }
+    header nav ul li{
+       
+        list-style: none;
+        margin: 10px 10px;
+        position: relative;
+        transform: translateX(-16px);
+    }
+    header nav ul li:hover::after{
+        width:0;
+       
+    }
+    header nav ul li a{
+        color: black; 
+    }
+    header nav ul.open-menu{
+       width: 167px;
+        height:135px;
+    }
+    header nav .menu span{
+        opacity: 1;
+        }
+}

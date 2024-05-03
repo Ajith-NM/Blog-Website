@@ -1,0 +1,19 @@
+<div class="div">
+    <div class="slider">
+        
+        <div class="list">
+            <div class="item active" > @if(home!={})
+                {<img [src]=home.image>}
+
+                <div class="content">
+                    <p class="animate">explore</p>
+                    <h2 class="animate">{{home.title}}</h2>
+                    <p class="animate">{{home.content}}</p>
+                    <button class="animate" [routerLink]="['/home']">explore</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

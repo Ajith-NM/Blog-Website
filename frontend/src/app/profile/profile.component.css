@@ -1,0 +1,118 @@
+.main{
+   
+    width: 898px;
+    margin: 0px auto;
+    min-height: 100vh;
+    max-height: max-content;
+    box-shadow: -2px 2px 5px gray,2px 2px 5px gray;
+    padding: 6px;
+    background-color: aliceblue;
+}
+.profile{
+    width: 100%;
+    height: 350px;
+    position: relative;
+   
+}
+.profile .profile-blok{
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+}
+
+.profile  .profile-blok img,
+.profile .profile-img img,
+.blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.profile .profile-img{
+    width: 150px;
+    height: 150px;
+   position: absolute;
+   margin-left: 41.6%;
+   bottom:-72px;
+   border-radius: 50%;
+   border: 2px solid aliceblue;
+   box-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+   overflow: hidden;
+
+}
+.profile-details{
+    text-align: center;
+    width: 100%;
+}
+.profile-details .user-details{
+ 
+ margin-top: 80px;
+}
+.profile-details .user-details p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(6, 80, 120);
+}
+.profile-details .created{
+    text-transform: capitalize;
+    text-align: center;
+    width: 90%;
+    margin: 20px auto;
+   
+}
+.profile-details .created h3{
+    margin: 0px auto 20px;
+}
+.profile-details .created .blogs{
+    width: 100%;
+    height: 190px;
+    display: grid;
+    grid-template-columns: 250px auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.blog-img{
+    height: 190px;
+    border: 3px solid rgb(50, 168, 186);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.blog-content{
+   margin: 10px;
+   display: flex;
+   align-items: center;
+}
+@media(max-width:980px){
+    .main{
+        width: 90%;
+    }
+    
+}
+@media(max-width:690px){
+    .profile .profile-blok{
+        height: 300px;
+    }
+    .profile .profile-img{
+        width: 100px;
+        height: 100px;
+        bottom:-5px; 
+        margin-left: 10px;
+    }
+    .profile-details .user-details{
+ 
+        margin-top:11px;
+       }
+    .profile-details .created .blogs{
+        grid-template-columns: 150px auto;
+      
+    }
+    .profile-details .created .blogs{
+        height: 100px;
+    }
+    .blog-img{
+        height: 100px;
+        
+    }
+}

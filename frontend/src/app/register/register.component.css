@@ -1,0 +1,311 @@
+.container {
+    margin: 90px auto;
+    width: 850px;
+    height: 500px;
+    display: grid;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    background-color: #000;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.905);
+}
+
+.signup,
+.login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    background-color: aliceblue;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.signup .picture,
+.login .picture {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.signup form,
+.login form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.signup form .profile,
+.login form .profile {
+    margin: 50px auto 0px;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.signup form .profile .profile-img,
+.login form .profile .profile-img {
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+    border-radius: 50px;
+    overflow: hidden;
+
+}
+
+.signup form .profile img,
+.login form .profile img {
+    width: 100%;
+    height: 100%;
+    scale: 1.2;
+    object-fit: cover;
+}
+
+.signup form .profile .round {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 34px;
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+
+
+}
+
+.signup form .profile .round input[type="file"] {
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+
+}
+
+.signup form .profile .round input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
+.signup form h1,
+.login form h1 {
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.signup form .input-tag,
+.login form .input-tag {
+    width: 80%;
+    display: flex;
+
+}
+
+.signup form .input-tag span,
+.login form .input-tag span {
+
+    font-size: 22px;
+    margin: 0px 10px;
+}
+
+.signup form .input-tag input,
+.login form .input-tag input {
+    margin: 0px 47px 0px 0px;
+    width: 75%;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.signup form .input-tag input::content,
+.login form .input-tag input::content {
+
+    padding-left: 20px;
+
+}
+
+.signup form .input-tag input:hover,
+.login form .input-tag input:hover {
+    border: 0px solid;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.button-login {
+    margin-bottom: 30px;
+    position: relative;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup button,
+.login button {
+
+    width: 150px;
+    height: 30px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+.button-login span{
+display: none;
+}
+form p {
+    position: absolute;
+    color: rgba(254, 75, 75, 0.914);
+    bottom:-2px;
+    margin-left: 30px;
+    font-size: smaller;
+    font-weight: bolder;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+.signup button:active,
+.login button:active {
+    scale: .9;
+}
+
+.signup .picture img,
+.login .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.signup .picture .img-content,
+.login .picture .img-content {
+    /* background-color: aquamarine; */
+    position: absolute;
+    top: 63%;
+    left: 32%;
+    color: aliceblue;
+}
+
+.signup .picture .img-content p {
+    text-transform: capitalize;
+    text-decoration: underline;
+    margin: 10px auto;
+    padding-left: 23px;
+    font-size: smaller;
+    font-weight: bolder;
+}
+
+.login .picture .img-content p {
+    text-transform: capitalize;
+    text-decoration: underline;
+    margin: 10px auto;
+    padding-left: 10px;
+    font-size: smaller;
+    font-weight: bolder;
+
+
+}
+
+.animatesignin {
+    transform: translateX(-190%);
+    opacity: 0;
+    filter: blur(1.2px);
+    /* transition:.5s; */
+    animation: delay .5s ease-in-out 1 forwards;
+}
+
+.animatelogin {
+    transform: translateX(190%);
+    opacity: 0;
+    filter: blur(1.2px);
+    /* transition: .5s; */
+    animation: delay .5s ease-in-out 1 forwards;
+}
+
+.signup .picture .img-content button,
+.login .picture .img-content button {
+    color: aliceblue;
+    background: transparent;
+    border: 1px solid rgba(240, 248, 255, 0.487);
+}
+
+@keyframes delay {
+    50% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 0.5;
+        filter: blur(0.7px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0%);
+    }
+}
+
+@media(max-width:890px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media(max-width:770px) {
+    .container {
+        width: 650px;
+    }
+}
+
+@media(max-width:690px) {
+    .container {
+        width: 430px;
+    }
+
+    .button-login span {
+        display: inline;
+        margin-top: 5px;
+        color: rgb(72, 75, 79);
+        transform: translateX(-15px);
+    }
+
+    .button-login span span{
+color: aqua;
+    }
+
+    .signup .picture,
+    .login .picture {
+        display: none;
+    }
+
+    .signup form,
+    .login form {
+        width: 100%;
+    }
+    form p {
+
+        bottom:-15px;
+     
+    }
+}
+
+@media(max-width:438px) {
+    .container {
+        width: 330px;
+    }
+}

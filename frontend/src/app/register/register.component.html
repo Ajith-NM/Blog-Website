@@ -1,0 +1,70 @@
+<div class="container">
+    
+    <div class="signup" [class]="signClick?active:''">
+        <form action="" [class]="signClick?animatelogin:''" [formGroup]="signup" (ngSubmit)="signup.valid&&onSignup()">
+            <div class="profile">
+                <div class="profile-img">
+                    <img [src]="signup_img" alt="">
+                </div>
+
+                <div class="round">
+                    <input type="file" (change)="upload($event)">
+                    <i class='bx bxs-camera-plus'></i>
+                </div>
+            </div>
+            <h1>Create Account</h1>
+            <div class="input-tag"> <span><i class='bx bxs-user-plus'></i></span><input type="text"
+                    placeholder="Username" formControlName="username" required></div>
+            <div class="input-tag"><span><i class='bx bxs-envelope'></i></span><input type="email" placeholder="Email"
+                    formControlName="email" required></div>
+            <div class="input-tag"><span><i class='bx bxs-lock-alt'></i></span> <input type="password"
+                    placeholder="Password" formControlName="password" required></div>
+
+            <div class="button-login">
+                <button type="submit">sign Up</button>
+                <span>Already a user ? <span  (click)="login_Click()"> Login</span></span>
+                <p>{{message}}</p>
+            </div>
+        </form>
+        <div class="picture">
+            <img src="assets/sliders/travel.jpg" alt="" [class]="signClick?animatesignin:''">
+            <div class="img-content">
+                <p [class]="signClick?animatesignin:''">Already a user ?</p>
+                <button (click)="login_Click()" [class]="signClick?animatesignin:''">Login</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="login" [class]="logClick?active:''">
+        <div class="picture">
+            <img src="assets/sliders/travel.jpg" alt="" [class]="logClick?animatelogin:''">
+            <div class="img-content">
+                <p [class]="logClick?animatelogin:''">create an account ?</p>
+                <button (click)="signup_Click()" [class]="logClick?animatelogin:''">sign up</button>
+            </div>
+        </div>
+        <form action="" [class]="logClick?animatesignin:''" [formGroup]="login" (ngSubmit)="login.valid&&onLogin()">
+            <div class="profile">
+                <div class="profile-img">
+                    <img [src]="login_img" alt="">
+                </div>
+            </div>
+            <h1>Login Account</h1>
+            <div class="input-tag"> <span><i class='bx bxs-user-plus'></i></span><input type="text"
+                    placeholder="Username" formControlName="username" required></div>
+            <div class="input-tag"><span><i class='bx bxs-envelope'></i></span><input type="email" placeholder="Email"
+                    formControlName="email" required></div>
+            <div class="input-tag"><span><i class='bx bxs-lock-alt'></i></span> <input type="password"
+                    placeholder="Password" formControlName="password" required>
+            </div>
+            <div class="button-login"><button type="submit">Login</button>
+                <span >create an account ? <span (click)="signup_Click()">sign up</span> </span>
+                <p>{{message}}</p>
+            </div>
+
+        </form>
+    </div>
+
+</div>

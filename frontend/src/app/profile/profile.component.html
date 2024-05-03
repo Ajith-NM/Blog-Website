@@ -1,0 +1,41 @@
+<div class="main">
+    <div class="profile">
+        <div class="profile-blok">
+            <img [src]="default_User" alt="">
+        </div>
+        <div class="profile-img">
+            <img [src]="default_User" alt="">
+        </div>
+       
+    </div>
+    <div class="profile-details">
+        @if(current_user!="user"){
+            <div class="user-details">
+           
+                <h2>{{current_user.username}}</h2>
+               <p>{{current_user.email}}</p>
+           </div>
+           <div class="created">
+               <h3>MY blogs</h3>
+                   @for( blog of current_user.my_Blogs;track current_user.my_Blogs;let i=$index){
+                   <div class="blogs">
+                    <div class="blog-img">
+                        <img src="data:{{blog.extention}};base64,{{blog.image}}" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <p>{{blog.sub_Title}} </p>
+                    </div>
+                   </div>
+                
+                }
+                   @empty{
+                    No blogs created..
+                   }
+               
+           </div>     
+        }
+        
+    </div>
+
+</div>
+

@@ -1,0 +1,46 @@
+<div class="background">
+  <header>
+    <nav>
+      <span class="logo" [routerLink]="['/']">Luca</span>
+      <ul [class]="menu?menuopen:''">
+        <li> <a href="" [routerLink]="['/home']">Home</a></li>
+        <li> <a href="" [routerLink]="['/myblogs']">My Blogs</a></li>
+        <li> <a href="" [routerLink]="['/login']">Login</a></li>
+
+      </ul>
+      <div class="menu"><span><i class='bx bx-menu bx-sm' (click)="open_menu()"></i></span>
+      <div class="userprofile">
+        <img [src]="default_User" (click)="pfClicked()">
+
+      </div>
+      </div>
+      <div class="sub-menu" [class]=" pf_click?open:''">
+        <div class="sub-menu-items">
+          <div class="user-info">
+            <div class="user-img">
+              <img [src]="default_User" alt="" (click)="pfimgview()">
+            </div>
+            <h3>{{username}}</h3>
+          </div>
+          <hr>
+          <ol>
+            <li [routerLink]="['/profile']"> <span> <i class='bx bxs-user-circle'></i></span><span> view profile </span><span><i
+                  class='bx bx-chevron-right'></i></span></li>
+            <li> <span> <i class='bx bxs-cog'></i></span><span> settings </span> <span><i
+                  class='bx bx-chevron-right'></i></span></li>
+            <li> <span><i class='bx bxs-door-open'></i></span><span (click)=" logout()"> log out </span><span (click)=" logout()"><i
+                  class='bx bx-chevron-right'></i></span></li>
+          </ol>
+        </div>
+      </div>
+      <div class="pf-img-view" [class]="pf_img_view?view:''">
+        <img [src]="default_User" alt="">
+      </div>
+    </nav>
+  </header>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+
+
+</div>

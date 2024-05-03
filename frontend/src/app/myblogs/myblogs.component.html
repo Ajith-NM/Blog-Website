@@ -1,0 +1,45 @@
+
+<div class="main">
+    <section>
+        <div class="post">
+            @for(blog of my_Blogs;track my_Blogs;let i=$index){
+            <div class="item" (click)="view(my_Blogs[i]._id)">
+                <div class="image">
+                    <img src="data:{{blog.extention}};base64,{{blog.image}}" alt="">
+                </div>
+
+                <h5>#{{blog.category}}</h5>
+                <h3>{{blog.title}}</h3>
+                <span>{{blog.date | date}}</span>
+                <p>Godzilla vs. Kong, made by Adam Wingard and released in 2021 is a </p>
+                <div class="profile">
+                    <div class="pf-img">
+                        <img src="data:{{user.extention}};base64,{{user.profile_img}}" alt="">
+                    </div>
+                    <span class="name">{{user.username}}</span>
+                    <p><span class="cmnt"><i class='bx bx-comment'></i></span>{{blog.comments}}</p>
+                    <p><span class="like"><i class='bx bx-heart'></i></span>{{blog.liked_Users}}</p>
+                </div>
+            </div>
+            }
+            @empty{
+            @if(message=="no blogs are created"){
+            <div class="err-msg">
+                <h3>{{message}}</h3>
+            </div>
+            }
+            @else{
+            <div class="err-msg">
+                <h3>{{message}}</h3>
+            </div>
+            }
+
+            }
+        </div>
+        @if(message=="no blogs are created" ||message==""){
+            <div class="create">
+                <span [routerLink]="['/create']"><i class='bx bx-plus-circle'></i></span>
+            </div>
+            }
+    </section>
+</div>

@@ -1,0 +1,48 @@
+<div class="main">
+    <div class="header">
+        <h4 class="active" (click)="select_filter()">filter</h4>
+        <div class="post-filter" [class]="filter?filter_open:''">
+            <span class="filter-item" (click)="filterActive('All',0)" [class]="filteritem[0]?active:''">All</span>
+            <span class="filter-item" (click)="filterActive('Movie',1)" [class]="filteritem[1]?active:''">movie</span>
+            <span class="filter-item" (click)="filterActive('Travel',2)" [class]="filteritem[2]?active:''">travel</span>
+            <span class="filter-item" (click)="filterActive('Food',3)" [class]="filteritem[3]?active:''">food</span>
+            <span class="filter-item" (click)="filterActive('Games',4)" [class]="filteritem[4]?active:''">games</span>
+            <span class="filter-item" (click)="filterActive('Series',5)" [class]="filteritem[5]?active:''">Series</span>
+            <span class="filter-item" (click)="filterActive('Education',6)" [class]="filteritem[6]?active:''">education</span>
+            <span class="filter-item" (click)="filterActive('Anime',7)" [class]="filteritem[7]?active:''">anime</span>
+            <span class="filter-item" (click)="filterActive('Others',8)" [class]="filteritem[8]?active:''">Others</span>
+        </div>
+    </div>
+
+    <section>
+        <div class="post">
+            @for(blog of all_Blogs;track all_Blogs;let i=$index){
+                
+            <div class="item"  (click)="view(all_Blogs[i]._id)">
+                <div class="image" >
+                    <img src="data:{{blog.extention}};base64,{{blog.image}}" alt="" >
+                </div>
+
+                <h5>#{{blog.category}}</h5>
+                <h3>{{blog.title}} </h3>
+                <span>{{blog.date | date}}</span>
+                <p>{{blog.content | splice}}... </p>
+                <div class="profile">
+                    <div class="pf-img">
+                        <img src="data:{{blog.writer.extention}};base64,{{blog.writer.profile_img}}" alt="">
+                    </div>
+                    <span class="name">{{blog.writer.username}} </span>
+                    <p><span class="cmnt"><i class='bx bx-comment'></i></span>{{blog.comments}}</p>
+                    <p><span class="like"><i class='bx bx-heart'></i></span>{{blog.liked_Users}}</p>
+                </div>
+            </div>
+            }
+            @empty{
+            <div class="err-msg">
+                <h3>{{message}}</h3>
+            </div>
+            }
+        </div>
+
+    </section>
+</div>

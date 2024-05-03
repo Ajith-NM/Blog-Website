@@ -1,0 +1,98 @@
+<div class="main">
+    <div class="layout">
+        <div class="title">
+            
+            <h1>{{blog_view.title}}</h1>
+        </div>
+
+        <div class="main_content">
+            <div class="blogimg">
+                <img src="data:{{blog_view.extention}};base64,{{blog_view.image}}" alt="">
+            </div>
+            <div class="frofile">
+                <div class="profile_image">
+                    <img src="data:{{blog_view.writer.extention}};base64,{{blog_view.writer.profile_img}}" alt="">
+                </div>
+                <div class="username">
+                    <p>{{blog_view.writer.username}}</p>
+                    <p>{{blog_view.date | date:'longDate'}}</p>
+                </div>
+                <div class="like_comment">
+                    <div class="like">
+                        <p (click)="addLike(blog_view._id)">
+                            @if(liked){
+                            <i class='bx bxs-like'></i>
+                            }
+                            @else{<i class='bx bx-like'></i>}{{like_length}}
+                        </p>
+                    </div>
+                    <div class="cmt">
+                        <p><i class='bx bx-chat'></i>{{comment_length}}</p>
+                    </div>
+                    <div class="share">
+                        <p><i class='bx bx-share-alt'></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="subtitle">
+                
+                <h3>{{blog_view.sub_Title}}</h3>
+            </div>
+
+            <div class="contents">
+                <p>{{blog_view.content}}</p>
+
+            </div>
+
+            <input type="text" placeholder="Comments..." [(ngModel)]="comment"> <button
+                (click)="addComment(blog_view._id)"><i class='bx bx-send'></i></button>
+
+        </div>
+    </div>
+    <div class="comments">
+    @for(comment of blog_view.comments;track comment;let ci=$index){
+
+    
+        <div class="comment">
+            <div class="comment_profile">
+                <img src="data:{{comment.comment_user.extention}};base64,{{comment.comment_user.profile_img}}" alt="">
+            </div>
+            <div class="comment_body">
+                <p>{{comment.comment_user.username}} <span (click)="deletecomment(blog_view.comments[ci]._id)"><i
+                            class='bx bx-trash'></i></span></p>
+                  <p>{{comment.date |date}}</p>          
+                <p>{{comment.comment}}</p>
+
+                <input type="text" placeholder="replay..." name="replay" #replay ><button
+                    (click)="addReplay(blog_view.comments[ci]._id,replay.value)" type="submit"><i class='bx bx-send'></i></button>
+
+                @for(replay of blog_view.comments[ci].replays;track replay;let ri=$index){
+                <div class="replay">
+                    <div class="replay_profile">
+                        <img src="data:{{replay.replay_user.extention}};base64,{{replay.replay_user.profile_img}}"
+                            alt="">
+
+                    </div>
+                    <div class="replay_body">
+                        <p>{{replay.replay_user.username}} <span
+                                (click)="deletereplay(blog_view.comments[ci]._id,blog_view.comments[ci].replays[ri]._id)"><i
+                                    class='bx bx-trash'></i></span></p>
+                                    <p>{{replay.date |date}}</p>
+                        <p> {{replay.replay}}</p>
+                    </div>
+                </div>
+                }
+                @empty{
+                
+                }
+
+            </div>
+        </div>
+    
+
+    }
+    @empty{
+    <h5>no comments yet</h5>
+    }
+</div>
+</div>

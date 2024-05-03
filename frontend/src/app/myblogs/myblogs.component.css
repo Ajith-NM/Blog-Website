@@ -1,0 +1,124 @@
+
+.main{
+    width: 97%;
+    min-height:100vh;
+    max-height: max-content;
+    
+    margin: 0px auto;
+    position: relative;
+}
+
+section{
+    margin: 5px auto;
+    width: 100%;
+}
+section .post {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 271px);
+    justify-content: center;
+    gap:20px;
+   min-height: 90vh;
+   max-height: fit-content;
+   padding: 6px;
+   
+}
+
+section .post .item{
+   
+    padding: 14px;
+    border-radius: 10px;
+   height: 325px;
+    overflow: hidden;
+    position: relative;
+    background-color:aliceblue;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+section .post .item:hover{
+    scale: 1.02;
+    box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+}
+section .post .item .image{
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+section .post .item .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+section .post .item h5{
+    color: rgb(50, 168, 186);
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+section .post .item h3{
+    font-size:17px;
+    font-weight:bolder;
+    margin-bottom: 5px;
+}
+section .post .item span{
+    font-size: smaller;
+    font-weight:bolder;
+}
+section .post .item p{
+    font-size: smaller;
+   font-weight: bolder;
+   margin: 3px 0px;
+}
+section .post .item .profile{
+    width: 100%;
+    display: grid;
+    grid-template-columns:35px 119px auto auto ;
+    gap: 5px;
+   overflow: hidden;
+   height: 32px;
+   position: absolute;
+   bottom: 10px;
+}
+section .post .item .profile .pf-img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+   border: 3px solid  rgb(50, 168, 186);
+    margin-left: 0px;
+    overflow: hidden;
+}
+section .post .item .profile .pf-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+section .post .item .profile .name {
+    margin: auto 0px;
+    text-transform: capitalize;
+}
+section .post .item .profile p .cmnt,
+section .post .item .profile p .like{
+    font-weight:bolder;
+    font-size: 20px;
+    color:rgb(3, 154, 174) ;
+}
+section .create{
+    margin: 0px auto;
+    max-width:max-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+section .create span{
+   
+    color: rgba(0, 0, 0, 0.8);
+    font-size:44px;
+    width: max-content;
+    height: max-content;   
+}
+.err-msg{
+    width: max-content;
+    margin:0px auto ;
+    padding-top: 10px;
+}
+.err-msg h3{
+    color: #fa6565;
+}
+

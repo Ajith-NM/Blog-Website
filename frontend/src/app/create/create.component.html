@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="upload">
+     <div class="contents">
+         <form action=""  #myForm="ngForm" (ngSubmit)="myForm.valid&&onSubmit()">
+         <div class="content">
+             <label for="tile">Title:</label> <br>
+             <input type="text" name="title" id="tile" placeholder="enter the tile"   [(ngModel)]="myform.title"  #title="ngModel" required>
+             @if(myForm.submitted&&title.errors?.['required'])
+             {
+                 <p>title required</p>
+             }
+                 
+           </div>          
+           <div class="content">
+             <label for="file">Image:</label> <br>
+             <input type="file" name="image"  id="file" (change)="onChange($event)"  [(ngModel)]="myform.image" #image="ngModel" required >
+             @if(myForm.submitted&&image.errors?.['required'])
+             {
+                 <p >Image required</p>
+             }
+           </div>
+           <div class="content">
+             <label for="tile2">Sub Title:</label> <br>
+             <input type="text" name="subtitle" id="tile2" placeholder="enter the second tile"  [(ngModel)]="myform.subtitle" #subtitle="ngModel" required>
+             @if(myForm.submitted&&subtitle.errors?.['required'])
+             {
+                 <p>Sub Title required</p>
+             }
+           </div>
+           <div class="content">
+             <label for="body" >Contents:</label><br>
+             <textarea name="content" id="body" cols="" rows=""  [(ngModel)]="myform.content" #content="ngModel" required></textarea>
+             @if(myForm.submitted&&content.errors?.['required'])
+             {
+                 <p>Contents required</p>
+             }
+           </div>
+             
+             <h3 (click)="category()">Category : {{category_value}}<span><i class='bx bx-chevron-down'></i></span></h3>
+ 
+             <div class="category" [class]="clicked?open:''">
+                 <ul>
+                 <li (click)="get_category('Movie')"> <span>Movie </span>  <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Travel')"><span>Travel </span> <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Food')"><span>Food </span>  <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Games')"><span>Games </span>  <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Series')"><span>Series </span>  <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Education')"><span>Education</span> <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Anime')"><span>Anime </span>   <span><i class='bx bx-chevron-right'></i></span></li>
+                 <li (click)="get_category('Others')"><span>Others</span>   <span><i class='bx bx-chevron-right'></i></span></li>
+               </ul>
+             
+             </div>
+           
+           <button type="submit" class="btn"> Upload</button>
+         </form>
+     </div>
+       
+    </div> 
+     <div class="view">
+     <div class="main">
+       @if(myform.title !=''){
+         <div class="title">
+          <h2>{{myform.title}}</h2> 
+         </div>
+       }
+       @if(myform.image!=''){
+         <div class="img-cat">
+         <div class="image"> 
+             <img [src]="myform.image"> 
+         </div> 
+         <p>#{{category_value}}</p></div>
+       }
+      
+       @if(myform.subtitle !=''){
+         <div class="subhead">
+           <h3>{{myform.subtitle}}</h3>
+          
+         </div>
+       }
+       @if(myform.content !=''){
+         <div class="body">
+          <p>{{myform.content}}</p>
+         </div>
+       }
+      
+       
+     </div>
+     </div>
+ </div>
+ 
